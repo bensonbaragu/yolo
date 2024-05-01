@@ -26,6 +26,6 @@ COPY --from=builder  /app .
 #expose container to port 5000
 EXPOSE 5000
 
-CMD ["npm","start"]
+CMD ["npm","start"]  
 
 
