@@ -1,7 +1,7 @@
 #Stage 1 - builder 
 #Base image 
 
-FROM node:13.12.0 as builder 
+FROM node:13.12.0-alpine as builder 
 
 #setup working directory  
 WORKDIR /app
