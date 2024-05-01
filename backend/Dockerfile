@@ -23,6 +23,7 @@ WORKDIR /app
 #copy files from stage 1 builder 
 COPY --from=builder  /app .
 
+ENV MONGO_URI=mongodb+srv://bensonbaragu:Ac4XJaH7u3dwyMUA@bbcluster.w33tl4z.mongodb.net/?retryWrites=true&w=majority&appName=bbcluster
 #expose container to port 5000
 EXPOSE 5000
 
