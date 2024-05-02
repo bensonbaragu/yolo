@@ -24,6 +24,8 @@ WORKDIR /app
 #copy from builder to prod 
 COPY --from=builder /app . 
 
+EXPOSE 3000
+
 #expose container to port 3000 
 CMD ["npm","start"]
 
