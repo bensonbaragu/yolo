@@ -1,6 +1,6 @@
 #Stage 1 build
 #Base image 
-FROM node:13.12.0 as builder 
+FROM node:13-alpine as builder 
 
 #setup working directory 
 WORKDIR /app 
@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 #Stage 2 build 
-FROM node:13.12.0 as prod 
+FROM node:13-alpine as prod 
 
 #setup working directory 
 WORKDIR /app 
