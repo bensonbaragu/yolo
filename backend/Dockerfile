@@ -23,12 +23,11 @@ WORKDIR /app
 #copy files from stage 1 builder 
 COPY --from=builder  /app .
 
-#Mongo db atlas URI
-ENV MONGO_URI = 'mongodb+srv://bensonbaragu:Ac4XJaH7u3dwyMUA@bbcluster.w33tl4z.mongodb.net/?retryWrites=true&w=majority&appName=bbcluster'
-
-#expose container to port 5000
+# Install MongoDB and expose port
+RUN apk add --no-cache mongodb-tools mongodb
 EXPOSE 5000
+EXPOSE 27017
 
-CMD ["npm","start"]  
-
+#CMD ["mongod","&","npm","start"]  
+CMD mongod & npm start 
 
