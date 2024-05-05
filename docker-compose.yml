@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  clientapp:
+    # image: client-image
+    # container_name: client-container
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    networks:
+      - yolonetwork     
+
+  backendapp:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - yolonetwork
+    volumes:
+      - yolovolume
+    
+    mongodb:
+    image: mongo:latest
+    ports: 
+      - "27017:27017"
+
+volumes:
+  yolovolume:
+
+networks:
+  yolonetwork:
+    driver: bridge

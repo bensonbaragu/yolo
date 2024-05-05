@@ -24,10 +24,10 @@ WORKDIR /app
 COPY --from=builder  /app .
 
 # Install MongoDB and expose port
-RUN apk add --no-cache mongodb-tools mongodb
+RUN apk add --no-cache mongodb-tools
 EXPOSE 5000
 EXPOSE 27017
 
-#CMD ["mongod","&","npm","start"]  
-CMD mongod & npm start 
+CMD ["npm","start"]  
+
 
