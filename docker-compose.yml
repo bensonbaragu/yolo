@@ -7,7 +7,8 @@ services:
     build:
       context: ./client
     ports:
-      - "3000:3000"
+      - "3000:3000" 
+    stdin_open: true
     networks:
       - yolonetwork     
 
@@ -18,13 +19,18 @@ services:
       - "5000:5000"
     networks:
       - yolonetwork
-    volumes:
-      - yolovolume
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+    # volumes:
+    #   - yolovolume
     
-    mongodb:
-    image: mongo:latest
+  mongodb:
+    build: .
     ports: 
-      - "27017:27017"
+      - "27018:27017"
+    networks:
+      - yolonetwork
+    
 
 volumes:
   yolovolume:

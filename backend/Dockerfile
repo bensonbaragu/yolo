@@ -23,10 +23,12 @@ WORKDIR /app
 #copy files from stage 1 builder 
 COPY --from=builder  /app .
 
+
 # Install MongoDB and expose port
-RUN apk add --no-cache mongodb-tools
+# RUN apk add --no-cache mongodb-tools
+# EXPOSE 27017
 EXPOSE 5000
-EXPOSE 27017
+
 
 CMD ["npm","start"]  
 
