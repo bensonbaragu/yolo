@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   clientapp:
-    # image: client-image
-    # container_name: client-container
+    image: baragu123/client-image:1.4.1
+    container_name: client-container
     build:
       context: ./client
     ports:
@@ -13,6 +13,8 @@ services:
       - yolonetwork     
 
   backendapp:
+    image: baragu123/backend-image:1.6.2
+    container_name: backend-container
     build:
       context: ./backend
     ports:
@@ -22,9 +24,11 @@ services:
     environment:
       - MONGODB_URI=mongodb://mongodb:27017
     # volumes:
-    #   - yolovolume
+    #  - yolovolume
     
   mongodb:
+    image: baragu123/mongo-image:1.0.0
+    container_name: mongodb
     build: .
     ports: 
       - "27018:27017"
