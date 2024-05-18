@@ -75,7 +75,7 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
   config.ssh.insert_key = false
-
+  config.vm.boot_timeout = 600
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "vv"
     ansible.playbook = "playbook.yaml"
