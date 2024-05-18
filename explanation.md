@@ -28,3 +28,4 @@
 
 # Docker compose file 
 - Docker compose file written to run the containers simultaneously. 
+- The command "docker-compose up" will run all the services simultaneously. 
