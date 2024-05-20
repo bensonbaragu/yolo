@@ -1,0 +1,5 @@
+---
+# tasks file for apt-update
+- name: Update package cache
+  apt:
+   update_cache: yes     

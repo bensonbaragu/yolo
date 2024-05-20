@@ -1,0 +1,12 @@
+---
+# tasks file for docker_compose_install
+- name: Install docker-compose from official GitHub repo
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+
+- name: Ensure docker-compose is executable
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: '0755'

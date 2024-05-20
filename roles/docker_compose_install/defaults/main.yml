@@ -1,0 +1,5 @@
+---
+# defaults file for docker_compose_install
+
+docker_compose_version: "1.29.2"
+ansible_architecture: "{{ ansible_architecture | regex_replace('x86_64', 'x86_64') | regex_replace('aarch64', 'arm64') }}"

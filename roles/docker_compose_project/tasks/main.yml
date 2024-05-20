@@ -1,0 +1,12 @@
+---
+# tasks file for docker_compose_project
+- name: Copy project files
+  copy:
+    src: ../../..
+    dest: app/
+
+- name: Run Docker Compose
+  docker_compose:
+    project_src: app/
+    state: present
+    restarted: true
