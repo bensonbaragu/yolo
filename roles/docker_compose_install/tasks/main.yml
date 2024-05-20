@@ -10,3 +10,5 @@
   file:
     path: /usr/local/bin/docker-compose
     mode: '0755'
+
+

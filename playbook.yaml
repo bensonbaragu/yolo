@@ -1,6 +1,22 @@
 - hosts: all
-  become: true 
-  tasks: 
-  - name: Test connectivity 
-    ping: 
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    - test-connectivity 
+    - apt-update
+    - install-docker 
+    - docker_compose_install
+    #- docker_compose_project 
 
+  # tasks:
+  # - name: Copy project files
+  #   copy:
+  #     src: .
+  #     dest: app/
+
+  # - name: Run Docker Compose
+  #   docker_compose:
+  #     project_src: app/
+  #     state: present
+  #     restarted: true
