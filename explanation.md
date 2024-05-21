@@ -1,31 +1,19 @@
-# Backend docker file 
-## Builder stage  
-- Used a multistage build 
-- In the first stage - Builder
-- The base image - node:13-alpine was used. 
-    Reason: the node version required by the project was node v13.12.0
-- Package dependencies were copied to the container and npm was installed 
+# Ansible playbook 
 
-## Prod stage 
-- The files from the builder stage were copied to prod stage 
-- Install mongodb-tools 
-- Expose mongod and container to port 27017 and 5000 respectively 
-- RUN npm start 
+- The ansible playbook does the following actions:- 
+        * Updates apt library 
+        * Installs docker and docker-compose
+        * Builds and runs 3 containers : - 
+                - client 
+                - backend 
+                - database 
 
-# Client docker file 
+- When you run "vagrant up" in the terminal a geerlingguy/ubuntu2004 base virtual machine is spun up 
+  and the tasks in the ansible playbook are run.
 
-## Builder stage  
-- Used a multistage build 
-- In the first stage - Builder
-- The base image - node:13-alpine was used. 
-    Reason: the node version required by the project was node v13.12.0
-- Package dependencies were copied to the container and npm was installed 
-- The rest of the files copied to the container 
 
-## Prod stage 
-- The files from the builder stage were copied to prod stage 
-- RUN npm start 
 
-# Docker compose file 
-- Docker compose file written to run the containers simultaneously. 
-- The command "docker-compose up" will run all the services simultaneously. 
+
+
+
+
