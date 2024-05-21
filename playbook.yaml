@@ -9,11 +9,19 @@
     - docker_compose_install
     #- docker_compose_project 
 
-  # tasks:
-  # - name: Copy project files
-  #   copy:
-  #     src: .
-  #     dest: app/
+  tasks:
+  - name: Copy project files
+    copy:
+      src: .
+      dest: app/
+
+  
+  - name: Run docker-compose command in the app directory
+    command: docker-compose up -d 
+    args:
+      chdir: app/
+    become: true 
+
 
   # - name: Run Docker Compose
   #   docker_compose:

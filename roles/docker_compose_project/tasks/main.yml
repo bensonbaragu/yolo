@@ -10,3 +10,4 @@
     project_src: app/
     state: present
     restarted: true
+
