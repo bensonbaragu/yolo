@@ -1,18 +1,29 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: yolo-deployment
+  name: yolo-statefulset 
 spec:
   selector:
     matchLabels:
-      app: yolo-pod
+      app: yolo-pods
+  serviceName: yolo-service
   replicas: 2
   template:
     metadata:
       labels:
-        app: yolo-pod
+        app: yolo-pods
     spec:
       containers:
+      #backend container
+      - name: yolo-backend-container
+        image: baragu123/backend-image:1.6.2
+        ports:
+        - containerPort: 5000
+          name: backend-port
+        volumeMounts:
+        - name: yolo-mount
+          mountPath: /app
+      
       #client container 
       - name: yolo-client-container
         image: baragu123/client-image:1.4.1
@@ -23,16 +34,6 @@ spec:
         ports:
         - containerPort: 3000
       
-      #backend container 
-      - name: yolo-backend-container 
-        image: baragu123/backend-image:1.6.2
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 5000
-      
       #mongodb container 
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
@@ -42,3 +43,12 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 27017
+
+  volumeClaimTemplates:
+  - metadata:
+      name: yolo-mount
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
