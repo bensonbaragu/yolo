@@ -1,22 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: yolo-deployment
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: yolo-pod
   template:
     metadata:
       labels:
-        app: myapp
+        app: yolo-pod
     spec:
       containers:
-      - name: myapp
-        image: <Image>
+      #client container 
+      - name: yolo-client-container
+        image: baragu123/client-image:1.4.1
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: <Port>
+        - containerPort: 3000
+      
+      #backend container 
+      - name: yolo-backend-container 
+        image: baragu123/backend-image:1.6.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+      
+      #mongodb container 
+      - name: mongodb
+        image: baragu123/mongo-image:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
