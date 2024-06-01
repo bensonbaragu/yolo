@@ -10,17 +10,17 @@ spec:
 
   - port: 3000
     targetPort: 3000
-    nodeport: 30000
+    #nodeport: 30000
     name: client-port
   
   - port: 5000
     targetPort: 5000 
-    nodeport: 30001
+    #nodeport: 30001
     name: backend-port
   
   - port: 27017
     targetPort: 27017 
-    nodeport: 30002
+    #nodeport: 30002
     name: mongodb-port
 
 
