@@ -33,6 +33,8 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 3000
+        tty: true 
+        stdin: true  
       
       #mongodb container 
       - name: mongodb
