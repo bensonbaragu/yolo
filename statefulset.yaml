@@ -20,22 +20,24 @@ spec:
         ports:
         - containerPort: 5000
           name: backend-port
-        volumeMounts:
-        - name: yolo-volume 
-          mountPath: /app
+        
       
       #client container 
       - name: yolo-client-container
         image: baragu123/client-image:1.4.1
         ports:
         - containerPort: 3000
-        
+        tty: true 
+        stdin: true  
       
       #mongodb container 
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
-        ports:
+        ports:        
         - containerPort: 27017
+        volumeMounts:
+        - name: yolo-volume 
+          mountPath: /app
 
       volumes: 
       - name : yolo-volume 
