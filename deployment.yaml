@@ -15,30 +15,18 @@ spec:
       containers:
       #client container 
       - name: yolo-client-container
-        image: baragu123/client-image:1.4.1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: baragu123/client-image:1.4.1        
         ports:
         - containerPort: 3000
       
       #backend container 
       - name: yolo-backend-container 
         image: baragu123/backend-image:1.6.2
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 5000
       
       #mongodb container 
       - name: mongodb
-        image: baragu123/mongo-image:1.0.0
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: baragu123/mongo-image:1.0.0        
         ports:
         - containerPort: 27017
