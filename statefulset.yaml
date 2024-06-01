@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: yolo-pods
   serviceName: yolo-service
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -21,7 +21,7 @@ spec:
         - containerPort: 5000
           name: backend-port
         volumeMounts:
-        - name: yolo-mount
+        - name: yolo-volume 
           mountPath: /app
       
       #client container 
@@ -29,24 +29,16 @@ spec:
         image: baragu123/client-image:1.4.1
         ports:
         - containerPort: 3000
-        tty: true 
-        stdin: true
+        
       
       #mongodb container 
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 27017
 
-  volumeClaimTemplates:
-  - metadata:
-      name: yolo-mount
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+      volumes: 
+      - name : yolo-volume 
+        persistentVolumeClaim: 
+          claimName: yolo-pvc
+
