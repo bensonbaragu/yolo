@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: yolo-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: yolo-pods
+  serviceName: yolo-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: yolo-pods
+    spec:
+      containers:
+        # Backend container
+        - name: yolo-backend-container
+          image: baragu123/backend-image:1.6.2
+          ports:
+            - containerPort: 5000
+              name: backend-port
+          env:
+            - name: MONGODB_URI
+              value: mongodb://mongodb:27017/your-db-name
+        
+        # Client container 
+        - name: yolo-client-container
+          image: baragu123/client-image:1.4.1
+          ports:
+            - containerPort: 3000
+          tty: true 
+          stdin: true  
+        
+        # MongoDB container 
+        - name: mongodb
+          image: baragu123/mongo-image:1.0.0
+          ports:        
+            - containerPort: 27017
+              name: mongodb-port
+          volumeMounts:
+            - name: yolo-volume 
+              mountPath: /data/db
+      
+      volumes: 
+        - name: yolo-volume 
+          persistentVolumeClaim: 
+            claimName: yolo-pvc
