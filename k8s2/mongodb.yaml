@@ -43,6 +43,10 @@ spec:
       resources:
         requests:
           storage: 10Gi
-  volumeMounts:
-    - name: config-volume
-      mountPath: /etc/mongod.conf
+  - metadata:
+      name: config-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
