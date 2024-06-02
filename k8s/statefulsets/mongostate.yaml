@@ -26,10 +26,10 @@ spec:
         - name: yolo-volume 
           mountPath: /app
     
-    volumes: 
-      - name : yolo-volume 
-        persistentVolumeClaim: 
-          claimName: yolo-pvc
+      volumes: 
+        - name : yolo-volume 
+          persistentVolumeClaim: 
+            claimName: yolo-pvc
       
 
   # volumeClaimTemplates:
