@@ -28,3 +28,12 @@ spec:
       - name : yolo-volume 
         persistentVolumeClaim: 
           claimName: yolo-pvc  
+          
+  volumeClaimTemplates:
+  - metadata:
+      name: yolo-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
