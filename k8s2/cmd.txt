@@ -1,13 +1,21 @@
- //deployments
+ //creating deployments
  kubectl apply -f backend.yaml -f client.yaml -f mongodb.yaml 
 
- //services 
- kubectl apply -f backend_svc.yaml -f client_svc.yaml -f mongodb_svc.yaml -f pvc.yaml
+ //creating services 
+ kubectl apply -f backend_svc.yaml -f client_svc.yaml -f mongodb_svc.yaml 
+
+ // creating pvc 
+ kubectl apply -f pvc.yaml
 
  //deleting services 
-
+kubectl delete svc backend-service frontend-service mongodb-service
 
 //deleting deployments
-
+kubectl delete deployments backend-deployment client-deployment
 
 //deleting statefulsets
+kubectl delete statefulsets mongo mongodb-statefulset
+
+//delete pvc 
+kubectl delete pvc yolo-pvc
+
