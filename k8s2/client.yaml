@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: client-container
+        image: baragu123/client-image:1.4.1
+        ports:
+        - containerPort: 3000
+      tty: true 
+      stdin: true 
