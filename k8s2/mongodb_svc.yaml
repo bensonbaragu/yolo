@@ -9,5 +9,5 @@ spec:
   ports:
     - port: 27017 
       targetPort: 27017 #defined in mongodb statefulset
-      nodePort: 30001 
+      #nodePort: 30001 
       name: mongodb-port
