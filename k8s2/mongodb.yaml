@@ -26,6 +26,6 @@ spec:
           mountPath: /data/db
     
       volumes: 
-        - name : yolo-volume 
-          persistentVolumeClaim: 
-            claimName: yolo-pvc
+      - name : yolo-volume 
+        persistentVolumeClaim: 
+          claimName: yolo-pvc  
