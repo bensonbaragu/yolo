@@ -24,11 +24,11 @@ spec:
         - name: yolo-volume 
           mountPath: /data/db
     
-      volumes: 
-      - name : yolo-volume 
-        persistentVolumeClaim: 
-          claimName: yolo-pvc  
-          
+      # volumes: 
+      # - name : yolo-volume 
+      #   persistentVolumeClaim: 
+      #     claimName: yolo-pvc  
+
   volumeClaimTemplates:
   - metadata:
       name: yolo-volume
