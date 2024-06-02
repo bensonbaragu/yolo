@@ -22,7 +22,7 @@ spec:
               name: backend-port
           env:
             - name: MONGODB_URI
-              value: mongodb://mongodb:27017/your-db-name
+              value: mongodb://mongodb:27017/mongodb/yolomy
         
         # Client container 
         - name: yolo-client-container
