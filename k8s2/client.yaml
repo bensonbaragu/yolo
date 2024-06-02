@@ -17,5 +17,6 @@ spec:
         image: baragu123/client-image:1.4.1
         ports:
         - containerPort: 3000
-      tty: true 
-      stdin: true 
+        tty: true 
+        stdin: true 
+
