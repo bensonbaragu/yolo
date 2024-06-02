@@ -1,0 +1,13 @@
+ //deployments
+ kubectl apply -f backend.yaml -f client.yaml -f mongodb.yaml 
+
+ //services 
+ kubectl apply -f backend_svc.yaml -f client_svc.yaml -f mongodb_svc.yaml -f pvc.yaml
+
+ //deleting services 
+
+
+//deleting deployments
+
+
+//deleting statefulsets
