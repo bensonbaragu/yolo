@@ -1,8 +1,7 @@
-#mongodb container 
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongodb-statefulset 
+  name: mongodb-statefulset
 spec:
   selector:
     matchLabels:
@@ -14,21 +13,23 @@ spec:
       labels:
         app: mongodb
     spec:
+      securityContext:
+        fsGroup: 1001 # Ensures the volume is accessible by the specified user
       containers:
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
-        ports:        
+        ports:
         - containerPort: 27017
-          name : mongodb-port
+          name: mongodb-port
         volumeMounts:
-        - name: yolo-volume 
+        - name: yolo-volume
           mountPath: /data/db
-    
-      # volumes: 
-      # - name : yolo-volume 
-      #   persistentVolumeClaim: 
-      #     claimName: yolo-pvc  
-
+        env:
+        - name: MONGODB_URI
+          value: mongodb://mongodb:27017/yolomy
+        securityContext:
+          runAsUser: 1001
+          runAsGroup: 1001
   volumeClaimTemplates:
   - metadata:
       name: yolo-volume
