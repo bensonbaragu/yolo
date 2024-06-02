@@ -38,3 +38,6 @@ spec:
       resources:
         requests:
           storage: 10Gi
+  volumeMounts:
+    - name: config-volume
+      mountPath: /etc/mongod.conf
