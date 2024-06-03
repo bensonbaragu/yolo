@@ -33,7 +33,7 @@ This project is about running the yolo client, backend and database container on
 
 ## Step 4 - Clone yolo repo into GCP 
 
-## Run the manifest files 
+## Step 5 - Run the manifest files 
 
 // creating pvc 
  kubectl apply -f pvc.yaml
