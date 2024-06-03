@@ -11,6 +11,3 @@ data:
       port: 27017
     security:
       authorization: "disabled"
-
- 
-
