@@ -20,3 +20,11 @@ spec:
         env:
         - name: MONGODB_URI
           value: mongodb://mongodb-service:27017
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/backend.conf
+          subPath: backend.conf 
+      volumes:
+      - name: config-volume
+        configMap:
+          name: backend-config
