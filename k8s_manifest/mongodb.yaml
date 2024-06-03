@@ -12,17 +12,16 @@ spec:
     metadata:
       labels:
         app: mongodb
-    spec:
-      # securityContext:
-      #   fsGroup: 1001 # Ensures the volume is accessible by the specified user
+    spec:   
       containers:
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
         ports:
         - containerPort: 27017
           name: mongodb-port
+          
         volumeMounts:
-        - name: yolo-volume
+        - name: yolo-pvc
           mountPath: /data/db
 
         # - name: config-volume
@@ -43,7 +42,7 @@ spec:
           
   volumeClaimTemplates:
   - metadata:
-      name: yolo-volume
+      name: yolo-pvc
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
