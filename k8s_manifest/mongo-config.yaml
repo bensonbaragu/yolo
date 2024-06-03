@@ -12,18 +12,5 @@ data:
     security:
       authorization: "disabled"
 
---- 
+ 
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: backend-config
-data:
-  backend.conf: |
-    storage:
-      dbPath: /data/db
-    net:
-      bindIp: 0.0.0.0
-      port: 5000
-    security:
-      authorization: "disabled"
