@@ -24,7 +24,7 @@ spec:
         - name: config-volume
           mountPath: /etc/backend.conf
           subPath: backend.conf 
-      volumes:
-      - name: config-volume
-        configMap:
-          name: backend-config
+      # volumes:
+      # - name: config-volume
+      #   configMap:
+      #     name: backend-config
