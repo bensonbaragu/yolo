@@ -28,9 +28,9 @@ spec:
         #   mountPath: /etc/mongod.conf
         #   subPath: mongod.conf            
 
-        # env:
-        # - name: MONGODB_URI
-        #   value: mongodb://mongodb-service:27017
+        env:
+        - name: MONGODB_URI
+          value: mongodb://mongodb-service:27017
         # securityContext:
         #   runAsUser: 1001
         #   runAsGroup: 1001
