@@ -27,12 +27,7 @@ spec:
 
         - name: config-volume
           mountPath: /etc/mongod.conf
-          subPath: mongod.conf
-        
-      volumes:
-      - name: config-volume
-        configMap:
-          name: mongodb-config
+          subPath: mongod.conf            
 
         env:
         - name: MONGODB_URI
@@ -40,6 +35,12 @@ spec:
         securityContext:
           runAsUser: 1001
           runAsGroup: 1001
+
+      volumes:
+      - name: config-volume
+        configMap:
+          name: mongodb-config
+          
   volumeClaimTemplates:
   - metadata:
       name: yolo-volume
