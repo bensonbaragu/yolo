@@ -13,8 +13,8 @@ spec:
       labels:
         app: mongodb
     spec:
-      securityContext:
-        fsGroup: 1001 # Ensures the volume is accessible by the specified user
+      # securityContext:
+      #   fsGroup: 1001 # Ensures the volume is accessible by the specified user
       containers:
       - name: mongodb
         image: baragu123/mongo-image:1.0.0
